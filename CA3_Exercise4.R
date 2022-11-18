@@ -26,6 +26,8 @@ beta_hat
 sig_hat = sqrt((crossprod(y) - crossprod(y,x) %*% beta_hat - crossprod(x %*% beta_hat, y) + crossprod(x %*% beta_hat))/(nrow(x) - ncol(x)))
 sig_hat
 
-sqrt(anova(lm(y ~ x1 + x2 + x3, df))$"Mean Sq"[4])
+fit2 = lm(y ~ x1 + x2 + x3, df)
+fit2$coefficients
+sqrt(anova(lm(y ~ x1 + x2 + x3, df))$`Mean Sq`[4])
 
 # part 6 divides by (n - df) instead of n. 
